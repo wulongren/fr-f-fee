@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.flightroutes.flight.fee</groupId>
+		<artifactId>fr-f-fee</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>fr-f-fee-api</artifactId>
+    <packaging>jar</packaging>
+    <name>fr-f-fee-api</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+
+        <dependency>
+            <groupId>com.flightroutes.flight.comm</groupId>
+			<artifactId>fr_f_comm</artifactId>
+			<version>1.3.7</version>
+        </dependency>
+        
+    </dependencies>
+</project>

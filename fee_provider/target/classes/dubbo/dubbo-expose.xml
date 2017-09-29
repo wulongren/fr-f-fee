@@ -1,0 +1,46 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:registry protocol="zookeeper" address="${zkAdds}" group="${dubbo.policy.group}" id="fr_f_policy"/>
+																	
+     <dubbo:service
+            ref="rebateApiService"
+            interface="com.flightroutes.flight.policy.api.service.RebateApiService"
+            version="1.0.0"
+            cluster="failfast"
+            timeout="5000"
+            registry="fr_f_policy">
+    </dubbo:service>
+    
+    <dubbo:service
+            ref="rebateFilterService"
+            interface="com.flightroutes.flight.policy.api.service.RebateFilterService"
+            version="1.0.0"
+            cluster="failfast"
+            timeout="5000"
+            registry="fr_f_policy">
+    </dubbo:service>
+
+    <dubbo:service
+            ref="rebateRecommendApiService"
+            interface="com.flightroutes.flight.policy.api.service.RebateRecommendApiService"
+            version="1.0.0"
+            cluster="failfast"
+            timeout="5000"
+            registry="fr_f_policy">
+    </dubbo:service>
+    
+    <dubbo:service
+            ref="paperFareService"
+            interface="com.flightroutes.flight.policy.api.service.paper.PaperFareService"
+            version="1.0.0"
+            cluster="failfast"
+            timeout="5000"
+            registry="fr_f_policy">
+    </dubbo:service>
+
+</beans>
+

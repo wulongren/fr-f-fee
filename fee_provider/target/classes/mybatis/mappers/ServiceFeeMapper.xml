@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flightroutes.flight.fee.repository.ServiceFeeMapper">
+
+    <resultMap id="ResultMap" type="com.flightroutes.flight.fee.bean.ServiceFee">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="fee" property="fee" jdbcType="DOUBLE"/>
+        <result column="currency" property="currency" jdbcType="VARCHAR"/>
+        <result column="purchaser" property="purchaser" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+		id,fee,currency,purchaser,create_time,update_time
+	</sql>
+	<select id="get" resultMap="ResultMap">
+		select
+		fee,currency,purchaser
+		from service_fee
+		where purchaser = #{purchaser,jdbcType=VARCHAR}
+	</select>
+
+
+	<select id="list" resultMap="ResultMap">
+		select 
+		id,fee,currency,purchaser
+		from service_fee
+		<where>
+            <if test="key != null and key != ''">
+               purchaser = #{key}
+            </if>
+        </where>
+        order by create_time
+		limit #{start},#{pageSize}
+	</select>
+	
+	<select id="count" resultType="java.lang.Long">
+		select 
+		count(*)
+		from service_fee
+		<where>
+            <if test="key != null and key != ''">
+               purchaser = #{key}
+            </if>
+        </where>
+	</select>
+
+
+	<delete id="delete" parameterType="java.lang.Long">
+		delete from service_fee where id = #{id,jdbcType=BIGINT}
+	</delete>
+
+
+	<insert id="insert" parameterType="com.flightroutes.flight.fee.bean.ServiceFee">
+		insert into service_fee
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="fee != null">
+				fee,
+			</if>
+			<if test="currency != null">
+				currency,
+			</if>
+			<if test="purchaser != null">
+				purchaser,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="updateTime != null">
+				update_time,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="fee != null">
+				#{fee,jdbcType=DOUBLE},
+			</if>
+			<if test="currency != null">
+				#{currency,jdbcType=VARCHAR},
+			</if>
+			<if test="purchaser != null">
+				#{purchaser,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime,jdbcType=TIMESTAMP}
+			</if>
+		</trim>
+	</insert>
+
+
+	<update id="update" parameterType="com.flightroutes.flight.fee.bean.ServiceFee">
+		update service_fee
+		<set>
+			<if test="fee != null">
+				fee = #{fee,jdbcType=DOUBLE},
+			</if>
+			<if test="currency != null">
+				currency = #{currency,jdbcType=VARCHAR},
+			</if>
+			<if test="purchaser != null">
+				purchaser = #{purchaser,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateTime != null">
+				update_time = #{updateTime,jdbcType=TIMESTAMP}
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+
+</mapper>

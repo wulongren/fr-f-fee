@@ -1,0 +1,22 @@
+.navbarDiv {
+    height: 60px;
+}
+
+.partner-table-container {
+    text-align: center;
+}
+
+.page-title {
+    margin: auto;
+}
+
+.partner-add-form {
+    padding-bottom: 20px;
+    width: 200px;
+    margin: auto;
+}
+
+.carrierblack_form_width {
+    display: inline;
+    width: 94%;
+}
