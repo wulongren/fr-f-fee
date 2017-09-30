@@ -19,7 +19,7 @@ import com.flightroutes.flight.monitor.FalconMonitor;
 
 
 
-@Service
+@Service("serviceFeeApiService")
 public class ServiceFeeApiSerivceImpl implements ServiceFeeApiService{
 	
 	private static final Logger logger = LoggerFactory.getLogger(ServiceFeeApiSerivceImpl.class);

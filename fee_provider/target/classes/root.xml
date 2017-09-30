@@ -14,11 +14,11 @@
     </context:component-scan>
     <context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true"/>
     <!--允许扫描使用properties配置文件-->
-    <!-- <context:property-placeholder location="classpath*:/props/*.properties" ignore-unresolvable="true"/> -->
+    <context:property-placeholder location="classpath*:/props/*.properties" ignore-unresolvable="true"/>
 	
 	
    	 <import resource="mybatis/db-mybatis.xml"/> 
-   <!--   <import resource="dubbo/dubbo.xml"/>  -->
+     <import resource="dubbo/dubbo.xml"/> 
 
 </beans>
 
