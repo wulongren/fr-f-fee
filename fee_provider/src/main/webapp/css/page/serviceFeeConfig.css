@@ -1,0 +1,279 @@
+.searchTable {
+	display: table;
+	font-size: 12px;
+}
+
+.searchTable tr {
+	line-height: 30px;
+}
+
+.searchTable tr td {
+	
+}
+
+.fromEle {
+	width: 140px;
+	height: 24px;
+	line-height: 24px;
+	margin: 6px;
+	border: 1px solid #ddd;
+	border-radius: 0px;
+	text-indent: 5px;
+}
+
+.searchForm {
+	text-align: center;
+	margin-left: 20px;
+}
+/* 添加按钮样式   */
+.btn {
+	width: 80px;
+	height: 24px;
+	border: 1px solid #eee;
+	background: #f3f3f3;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background: #eee;
+}
+
+.addOpareter {
+	width: 98%;
+	margin: 0px auto;
+	margin-top: 30px;
+}
+
+.addOpareter .btn {
+	width: 130px;
+	height: 24px;
+	border: 1px solid #eee;
+	background: #f3f3f3;
+	cursor: pointer;
+}
+
+.addOpareter .btn:hover {
+	background: #eee;
+}
+
+/* 查定比结果显示  */
+.container {
+	width: 98%;
+	margin: 5px auto;
+}
+
+.container .tableResult {
+	width: 100%;
+	border: 1px solid #eee;
+	font-size: 12px;
+}
+
+.container .tableResult thead tr {
+	height: 36px;
+	background: #eee;
+	color: #333;
+	font-size: 14px;
+}
+
+.container .tableResult thead tr:hover {
+	cursor: pointer;
+}
+
+.container .tableResult tbody tr {
+	height: 32px;
+	border-buttom: 1px solid #f5f5f5;
+}
+
+.container .tableResult tbody tr td {
+	border: 1px solid #eee;
+}
+
+.container .tableResult tbody tr:hover {
+	background: #f9f9f9;
+}
+
+.container .tableResult tbody tr:hover .t_action {
+	display: block;
+}
+
+.container .tableResult tbody tr .t_td {
+	width: 120px;
+}
+
+.container .tableResult tbody .tableDetails {
+	line-height: 17px;
+	display: none;
+}
+
+.container .tableResult tbody tr td a {
+	color: #44ADE9
+}
+
+.container .tableResult tbody tr td a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/* 修改和添加样式    */
+.modal_yy {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	display: black;
+}
+
+.modal_content {
+	width: 500px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 4;
+	background: #fff;
+	display: black;
+	box-shadow: 0px 0px 5px 1px #000;
+	margin: -200px 0px 0px -250px;
+	border-radius: 3px;
+}
+
+.modal_content .modal_head {
+	background: #eee;
+	color: #666;
+}
+
+.modal_content .modal_head p {
+	width: 200px;
+	float: left;
+	line-height: 40px;
+	font-size: 16px;
+	font-weight: 600;
+	padding-left: 20px;
+	display: inline-block;
+}
+
+.modal_content .modal_head span {
+	width: 26px;
+	height: 26px;
+	line-height: 27px;
+	text-align: center;
+	float: right;
+	font-size: 16px;
+	border-radius: 15px;
+	margin: 7px;
+}
+
+.modal_content .modal_head span:hover {
+	background: #fefefe;
+	cursor: pointer;
+}
+
+.modal_ul {
+	border-bottom: 1px solid #ccc;
+}
+
+.modal_ul li {
+	height: 36px;
+	line-height: 36px;
+}
+
+.modal_ul li input {
+	width: 140px;
+	height: 24px;
+	line-height: 24px;
+	text-indent: 10px;
+	border: 1px solid #ddd;
+	border-radius: 0px;
+	margin-left: 5px;
+}
+
+.modal_ul li label {
+	width: 35%;
+	display: inline-block;
+	text-align: right;
+}
+
+.modal_foot {
+	text-align: right;
+}
+
+.modal_foot .save {
+	display: inline-block;
+	padding: 2px 20px;
+	background: #EEE;
+	color: #666;
+	border-radius: 3px;
+	margin: 8px;
+}
+
+.modal_foot .save:hover {
+	background: #ddd;
+	cursor: pointer;
+}
+
+.modal_foot .modal_cancel {
+	display: inline-block;
+	padding: 2px 20px;
+	background: #eee;
+	color: #666;
+	border-radius: 3px;
+	margin: 8px;
+}
+
+.modal_foot .modal_cancel:hover {
+	background: #ddd;
+	cursor: pointer;
+}
+
+/* 发送请求提示 */
+#commit_yy {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	display: none;
+}
+
+#commit_title {
+	width: 270px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 21;
+	background: #fff;
+	display: none;
+	box-shadow: 0px 0px 5px 1px #000;
+	margin: -30px 0px 0px -135px;
+	border-radius: 3px;
+	font-size: 18px;
+}
+
+.aBtn {
+	margin: 0px 2px;
+}
+
+.title {
+	text-align: center;
+	line-height: 60px;
+	font-size: 16px;
+	font-weight: 600;
+	margin-top: 20px;
+}
+
+.paidAmountTip{
+	color: red;
+	margin-left: 5px;
+	display: none;
+}
