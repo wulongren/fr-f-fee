@@ -135,16 +135,15 @@
 				<ul class="modal_ul">
 					<li>
 						<label>采购商: </label>
-						<input class="formEle" type="text" id="purchaser"/>
+						<input class="formEle" type="text" id="purchaser" onblur="verifyPurchaser()"/>
 	                </li>
 					<li>
 						<label>币种: </label>
-						<input class="formEle" type="text" id="currency"/>
+						<input class="formEle" type="text" id="currency" onblur="verifyCurrency()"/>
 	                </li>
 					<li>
 						<label>开票费: </label>
-						<input class="form-control" type="text" id="fee"/>
-						<span class="paidAmountTip">仅支持填入两位小数</span>
+						<input class="form-control" type="text" id="fee" onblur="verifyFee()"/>
 					</li>
 				</ul>
 			</form>
@@ -170,15 +169,15 @@
 					<input type="hidden" id="id" value="{{= it.id}}">
 					<li>
 						<label>采购商: </label>
-						<input class="formEle" type="text" id="purchaser" value="{{= it.purchaser}}"/>
+						<input class="formEle" type="text" id="purchaser" value="{{= it.purchaser}}" onblur="verifyPurchaser()"/>
 	                </li>
 					<li>
 						<label>币种: </label>
-						<input class="formEle" type="text" id="currency" value="{{= it.currency}}"/>
+						<input class="formEle" type="text" id="currency" value="{{= it.currency}}" onblur="verifyCurrency()"/>
 	                </li>
 					<li>
 						<label>开票费: </label>
-						<input class="form-control" type="text" id="fee" value="{{= it.fee}}" onblur="keepTwoNumber()"/>
+						<input class="form-control" type="text" id="fee" value="{{= it.fee}}" onblur="verifyFee()"/>
 						<span class="paidAmountTip">仅支持填入两位小数</span>
 					</li>
 				</ul>
@@ -191,6 +190,6 @@
 
 	</script>
 	
-	<script type="text/javascript" src="js/pages/serviceFeeConfig.js?v=20171017"></script>
+	<script type="text/javascript" src="js/pages/serviceFeeConfig.js?v=201710171300"></script>
 </body>
 </html>

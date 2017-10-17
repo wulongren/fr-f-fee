@@ -99,7 +99,7 @@ function serviceFeeAddSave(){
 	var purchaser = $('#purchaser').val().trim();
 	var currency = $('#currency').val().trim();
 	var fee = $('#fee').val().trim();
-	if(verify(purchaser,currency,fee)){
+	if(verify()){
 		$.ajax({
 			type : "POST",
 			url : "/serviceFee/insert",
@@ -136,7 +136,7 @@ function serviceFeeUpdateSave(){
 	var currency = $('#currency').val().trim();
 	var fee = $('#fee').val().trim();
 	var id = $('#id').val().trim();
-	if(verify(purchaser,currency,fee)){
+	if(verify()){
 		$.ajax({
 			type : "POST",
 			url : "/serviceFee/update",
@@ -191,44 +191,49 @@ function hideModal(){
 	$("#showModal").empty();
 }
 
-//保留2位小数
-function keepTwoNumber(){
-	var regExp = /^[0-9]+(\.[0-9]+)?$/;
-	var val = $.trim($("#fee").val());
-	
-	if( regExp.test(val) ){
-		var num = parseFloat(val);
-	    $("#fee").val(num.toFixed(2));
-	    $(".paidAmountTip").hide();
-	    return true;
-	}else{
-		$(".paidAmountTip").show();
-		return false;
-	}
-}
 
 //校验采购商开票费填写
-function verify(purchaser,currency,fee){
+function verify(){
 	/* 在校验之前先把所有的提示框的颜色恢复正常  */
 	$("input[type=text]").each(function (index, domEle) { 
 		$(domEle).css("border",'1px solid #ddd');
 	});
 	var state = true;
+	if(verifyPurchaser()){		
+		state = false;
+	}	
+	if(verifyCurrency()){		
+		state = false;
+	}
+	if(!verifyFee()){		
+		state = false;
+	}	
+	return state;
+}
+
+/*校验采购商*/
+function verifyPurchaser(){
+	var purchaser =$("#purchaser").val();
 	if(isNullOrEmpty(purchaser)){
 		$('#purchaser').css("border",'1px solid red');
-		state = false;
+		return false;
 	}
-	
+	return true;
+}
+
+//校验币种
+function verifyCurrency(){
+	var currency = $("#currency").val();
+	var reg = /^[a-zA-Z]{3}$/;
 	if(isNullOrEmpty(currency)){
 		$('#currency').css("border",'1px solid red');
-		state = false;
+		return false;
+	}else if(!reg.test(currency)){
+		$('#currency').css("border",'1px solid red');
+		return false;
+	}else{
+		return true;
 	}
-	if(!verifyFee()){
-		$('#fee').css("border",'1px solid red');
-		state = false;
-	}
-	
-	return state;
 }
 
 //开票费校验
@@ -236,12 +241,12 @@ function verifyFee(){
 	var fee = $("#fee").val();
 	var reg = /^\d+(\.\d{1,2})?$/;
 	if(isNullOrEmpty(fee)){
+		$('#fee').css("border",'1px solid red');
 		return false;
 	}else if(!reg.test(fee)){
-		$(".paidAmountTip").show();
-		return true;
-	}else{
-		$(".paidAmountTip").hide();
+		$('#fee').css("border",'1px solid red');
 		return false;
+	}else{
+		return true;
 	}
 }
