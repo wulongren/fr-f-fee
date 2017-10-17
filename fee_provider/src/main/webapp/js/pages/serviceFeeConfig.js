@@ -77,13 +77,13 @@ function showServiceFee(pageNo,pageSize){
 	$.ajax({
 		type : "POST",
 		url : "/serviceFee/list",
-		data: getReqData(),
+		data: getReqData(pageNo,pageSize),
 		async : false,
 		success : function(result) {
 			if (result.code == 0) {
 				dtoTmplRenderer("#service-fee-tpl",".service-fee tbody",result.data);
+				buildPage(result.data.total,pageNo,pageSize,"#page_bar",null,false);
 			}
-			buildPage(data.data.total,pageNo,pageSize,"#page_bar",null,false);
 		}
 	});
 }
