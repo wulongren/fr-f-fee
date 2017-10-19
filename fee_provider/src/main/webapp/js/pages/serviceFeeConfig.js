@@ -66,8 +66,8 @@ $('#searchBtn').click(function(){
 
 
 
-function getData(pageNo, pageSize) {
-	showServiceFee(pageNo,pageSize);
+function getData(currentPage, pageSize) {
+	showServiceFee(currentPage,pageSize);
 }
 
 function getReqData(pageNo,pageSize){
@@ -111,9 +111,11 @@ function serviceFeeAddSave(){
 				var showMsg = "添加失败";
 				if (data.code == 0) {
 					showMsg = "添加成功";
+					
 				}
 				CallCapacity("",showMsg,"",function(data){
-					showServiceFee(1,10);
+					$('#showModal').empty();
+					showServiceFee(1,10);		
 				});
 				
 			}
@@ -150,7 +152,8 @@ function serviceFeeUpdateSave(){
 					showMsg = "修改成功";
 				}
 				CallCapacity("",showMsg,"",function(data){
-					showServiceFee(pageNo,pageSize);
+					$('#showModal').empty();
+					showServiceFee(currentPage,pageSize);
 				});
 				
 			}
@@ -179,7 +182,7 @@ function serviceFeeRemove(id) {
 							showMsg = "删除成功";
 						}
 						CallCapacity("",showMsg,"",function(data){
-							showServiceFee(pageNo,pageSize);
+							showServiceFee(currentPage,pageSize);
 						});
 						
 					}
@@ -220,6 +223,7 @@ function verifyPurchaser(){
 		$('#purchaser').css("border",'1px solid red');
 		return false;
 	}
+	$('#purchaser').css("border",'1px solid #ddd');
 	return true;
 }
 
@@ -234,6 +238,7 @@ function verifyCurrency(){
 		$('#currency').css("border",'1px solid red');
 		return false;
 	}else{
+		$('#currency').css("border",'1px solid #ddd');
 		return true;
 	}
 }
@@ -249,6 +254,7 @@ function verifyFee(){
 		$('#fee').css("border",'1px solid red');
 		return false;
 	}else{
+		$('#fee').css("border",'1px solid #ddd');
 		return true;
 	}
 }
