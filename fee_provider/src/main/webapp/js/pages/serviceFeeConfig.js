@@ -49,10 +49,10 @@ function frServiceFeeUpdate(){
 				var showMsg = "修改失败";
 				if (data.code == 0) {
 					showMsg = "修改成功";
-					$('#showModal').empty();
 				}
 				CallCapacity("",showMsg,"",function(data){
 					location.reload(true);
+					$('#showModal').empty();
 				});
 			}
 		});
