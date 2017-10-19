@@ -39,7 +39,6 @@ function frServiceFeeUpdateShow(item){
 function frServiceFeeUpdate(){
 	var fee = $.trim($('#fee').val());
 	var id = $.trim($('#id').val());
-	$('#showModal').empty();
 	if(verifyFee()){
 		$.ajax({
 			type : "POST",
@@ -50,6 +49,7 @@ function frServiceFeeUpdate(){
 				var showMsg = "修改失败";
 				if (data.code == 0) {
 					showMsg = "修改成功";
+					$('#showModal').empty();
 				}
 				CallCapacity("",showMsg,"",function(data){
 					location.reload(true);
@@ -201,10 +201,10 @@ function verify(){
 		$(domEle).css("border",'1px solid #ddd');
 	});
 	var state = true;
-	if(verifyPurchaser()){		
+	if(!verifyPurchaser()){		
 		state = false;
 	}	
-	if(verifyCurrency()){		
+	if(!verifyCurrency()){		
 		state = false;
 	}
 	if(!verifyFee()){		

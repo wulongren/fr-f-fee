@@ -38,7 +38,7 @@
 	<div class="title">采购商开票费配置</div>
 
 	<div class="searchForm">
-		采购商
+		<span>采购商</span>
 		<input id="searchCode" type="text" class="form-control fromEle">
 		<button type="button" id="searchBtn" class="btn">查询</button>
 		<button type="button" onclick="serviceFeeAddShow()" class="btn">添加</button>
@@ -80,8 +80,7 @@
                 </li>
 				<li>
 					<label>开票费: </label>
-					<input class="form-control" type="text" id="fee" value="{{= it.fee}}"/>
-					<span class="paidAmountTip">仅支持填入两位小数</span>
+					<input class="form-control" type="text" id="fee" onblur="verifyFee()" value="{{= it.fee}}"/>
 				</li>
 			</ul>
 		</form>
@@ -100,7 +99,7 @@
 			<tr>
 				<td class="info" id="frId" style="display: none;">{{= order.id}}</td>
 				<td class="info" id="frCurrency">{{= order.currency}}</td>
-				<td class="info" id="frFee">{{= order.fee}}</td>
+				<td class="info" id="fee">{{= order.fee}}</td>
 				<td class="info" ><a onclick="frServiceFeeUpdateShow(this)">修改</a></td>
 			</tr>
         {{~}}
@@ -169,7 +168,7 @@
 					<input type="hidden" id="id" value="{{= it.id}}">
 					<li>
 						<label>采购商: </label>
-						<input class="formEle" type="text" id="purchaser" value="{{= it.purchaser}}" onblur="verifyPurchaser()"/>
+						<input class="formEle" type="text" id="purchaser" value="{{= it.purchaser}}" disabled/>
 	                </li>
 					<li>
 						<label>币种: </label>
@@ -178,7 +177,6 @@
 					<li>
 						<label>开票费: </label>
 						<input class="form-control" type="text" id="fee" value="{{= it.fee}}" onblur="verifyFee()"/>
-						<span class="paidAmountTip">仅支持填入两位小数</span>
 					</li>
 				</ul>
 			</form>
@@ -190,6 +188,6 @@
 
 	</script>
 	
-	<script type="text/javascript" src="js/pages/serviceFeeConfig.js?v=201710171705"></script>
+	<script type="text/javascript" src="js/pages/serviceFeeConfig.js?v=20171019"></script>
 </body>
 </html>
