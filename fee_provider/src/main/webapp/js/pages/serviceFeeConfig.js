@@ -1,7 +1,8 @@
 $(function(){
 	sendReqfrServiceFee();
+	buildPage(0,1,10,"#page_bar",null,false);
 	showServiceFee(1,10);
-	buildPage("",1,10,"#page_bar",null,false);
+	
 });
 
 //获取FR24标准开票费配置的列表
