@@ -51,6 +51,8 @@ public class ServiceFeeController {
 		List<ServiceFee> list = serviceFee.list(query);
 		Long count = serviceFee.count(query);
 		PageView view =  new PageView(count,list);
+		view.setPageNo(query.getPageNo());
+		view.setPageSize(query.getPageSize());
 		return ResultBean.newInstance(view);
 	}
 }
