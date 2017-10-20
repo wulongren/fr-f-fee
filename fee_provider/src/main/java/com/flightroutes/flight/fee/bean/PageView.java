@@ -58,7 +58,7 @@ public class PageView {
 	}
 
 	public Integer getPageSize() {
-		return (int) (total % pageSize == 0? total / pageSize : (total / pageSize + 1));
+		return pageSize;
 	}
 
 	public void setPageSize(Integer pageSize) {
@@ -66,7 +66,7 @@ public class PageView {
 	}
 
 	public Integer getPageCount() {
-		return pageCount;
+		return (int) (total % pageSize == 0? total / pageSize : (total / pageSize + 1));
 	}
 
 	public void setPageCount(Integer pageCount) {
