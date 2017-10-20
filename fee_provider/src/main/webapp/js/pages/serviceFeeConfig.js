@@ -18,6 +18,10 @@ function sendReqfrServiceFee(){
 		}
 	});
 }
+var pageVariable = {
+	currentPage : 1,
+	pageSize : 10
+}
 
 /* 模板引擎处理器   */
 function dtoTmplRenderer(tmplName,targetEle,data){
@@ -85,6 +89,9 @@ function showServiceFee(pageNo,pageSize){
 			if (result.code == 0) {
 				dtoTmplRenderer("#service-fee-tpl",".service-fee tbody",result.data);
 				buildPage(result.data.total,pageNo,pageSize,"#page_bar",null,false);
+				 /*把当前页，和每页显示数据的条数存到全局变量*/
+				pageVariable.currentPage = pageNo;
+				pageVariable.pageSize = pageSize;
 			}
 		}
 	});
@@ -153,7 +160,7 @@ function serviceFeeUpdateSave(){
 				}
 				CallCapacity("",showMsg,"",function(data){
 					$('#showModal').empty();
-					showServiceFee(currentPage,pageSize);
+					showServiceFee(pageVariable.currentPage,pageVariable.pageSize);
 				});
 				
 			}
@@ -182,7 +189,7 @@ function serviceFeeRemove(id) {
 							showMsg = "删除成功";
 						}
 						CallCapacity("",showMsg,"",function(data){
-							showServiceFee(currentPage,pageSize);
+							showServiceFee(pageVariable.currentPage,pageVariable.pageSize);
 						});
 						
 					}
