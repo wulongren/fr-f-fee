@@ -5,10 +5,10 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources.dev"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="fr-f-fee-api-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fr-f-fee-api/fr-f-fee-api">
+        <dependent-module archiveName="fr-f-fee-api-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fr-f-fee-api/fr-f-fee-api">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/fr-f-fee-provider/target/classes"/>
-        <property name="context-root" value="/"/>
+        <property name="context-root" value="fee"/>
     </wb-module>
 </project-modules>

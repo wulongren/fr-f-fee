@@ -8,15 +8,9 @@
 	
 	<dubbo:provider connections="10"/>
 	
-    <dubbo:application name="${zkServiceAppName}" owner="albert.liu,allen.xu" organization="FlightRoutes-Flight"/>
+    <dubbo:application name="${zkServiceAppName}" owner="kylin.tong" organization="FlightRoutes-Flight"/>
 
     <dubbo:protocol name="dubbo" port="${dubbo.port}" threads="200"/>
 
     <import resource="dubbo-expose.xml"/>
-    <import  resource="dubbo-dict-ref.xml"/> 
-   	<import  resource="dubbo-oms-ref.xml"/>
-   	<import  resource="dubbo-id-ref.xml"/> 
-   	<import resource="dubbo-sso-ref.xml"/>
-    <import resource="dubbo-privilege-ref.xml" />
-    <import resource="dubbo-account-ref.xml" />
 </beans>
