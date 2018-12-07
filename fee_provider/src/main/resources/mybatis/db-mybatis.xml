@@ -53,7 +53,7 @@
 
     <bean id="dataSource" class="com.dianping.zebra.group.jdbc.GroupDataSource" init-method="init" destroy-method="close">
         <!-- 必配。指定唯一确定数据库的key-->
-        <property name="jdbcRef" value="jdbcref" />
+        <property name="jdbcRef" value="fr_f_fee_product" />
         <!-- 选配。指定底层使用的连接池类型，支持"c3p0","tomcat-jdbc","druid","hikaricp","dbcp2"和"dbcp"，推荐使用"druid"或者"dbcp2"，版本2.10.3之后默认值为"druid"，之前版本默认值为"c3p0" -->
         <property name="poolType" value="druid" />
         <!-- 选配。指定连接池的最小连接数，默认值是5。 -->
