@@ -18,8 +18,27 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.sankuai</groupId>
+				<artifactId>inf-bom</artifactId>
+				<version>1.3.9</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
+
+		<dependency>
+			<groupId>com.dianping.zebra</groupId>
+			<artifactId>zebra-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.dianping.zebra</groupId>
+			<artifactId>zebra-ds-monitor-client</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.flightroutes.flight</groupId>
 			<artifactId>fr-f-monitor</artifactId>
