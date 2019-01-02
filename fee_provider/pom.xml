@@ -44,7 +44,25 @@
 			<artifactId>fr-f-monitor</artifactId>
 			<version>1.0.1</version>
 		</dependency>
-			
+		<dependency>
+			<groupId>com.dianping.squirrel</groupId>
+			<artifactId>squirrel-client</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.meituan.mtrace</groupId>
+			<artifactId>mtrace</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.meituan.mtrace</groupId>
+			<artifactId>mtrace-http</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sankuai.octo</groupId>
+			<artifactId>mns-invoker</artifactId>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>com.flightroutes.flight.fee</groupId>

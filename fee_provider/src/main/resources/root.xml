@@ -15,8 +15,16 @@
     <context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true"/>
     <!--允许扫描使用properties配置文件-->
     <context:property-placeholder location="classpath*:/props/*.properties" ignore-unresolvable="true"/>
-	
-	
+
+    <bean id="bzbHlbInvokingFactoryBean" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod"   value="com.sankuai.inf.octo.mns.MnsInvoker.registerHttpService"/>
+        <property name="arguments">
+            <list>
+                <value>com.sankuai.flight.hanglu.fee</value>
+                <value>8080</value><!-- test-->
+            </list>
+        </property>
+    </bean>
    	 <import resource="mybatis/db-mybatis.xml"/> 
      <import resource="dubbo/dubbo.xml"/> 
 
