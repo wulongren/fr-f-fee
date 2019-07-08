@@ -69,12 +69,16 @@
 			<artifactId>fr-f-fee-api</artifactId>
 			<version>1.0.0</version>
 		</dependency>
-		
-		
 
-	
 
-        
+
+
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.58</version>
+		</dependency>
 
 		<!--远程Dubbo的依赖 -->
 		<dependency>
