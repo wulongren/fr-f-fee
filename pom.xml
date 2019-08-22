@@ -36,7 +36,7 @@
         <!--<mybatis.version>3.2.4</mybatis.version>-->
         <!--<mybatis-spring.version>1.1.1</mybatis-spring.version>-->
         <slf4j.version>1.7.12</slf4j.version>
-        <jedis.version>2.5.1</jedis.version>
+        <!--<jedis.version>2.5.1</jedis.version>-->
         <fr.commoncode.version>1.0.0-SNAPSHOT</fr.commoncode.version>
     </properties>
 
@@ -135,11 +135,11 @@
             <!--</dependency>-->
 
 
-            <dependency>
-                <groupId>javax.validation</groupId>
-                <artifactId>validation-api</artifactId>
-                <version>1.1.0.Final</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>javax.validation</groupId>-->
+                <!--<artifactId>validation-api</artifactId>-->
+                <!--<version>1.1.0.Final</version>-->
+            <!--</dependency>-->
             <!--<dependency>-->
                 <!--<groupId>org.hibernate</groupId>-->
                 <!--<artifactId>hibernate-validator</artifactId>-->
