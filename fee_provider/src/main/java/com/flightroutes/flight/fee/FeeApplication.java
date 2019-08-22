@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-@ImportResource(value = {"classpath:root.xml", "classpath:dubbo/dubbo-expose.xml"})
+@ImportResource(value = {"classpath:root.xml"})
 public class FeeApplication {
 
     public static void main(String[] args) {
