@@ -74,6 +74,12 @@
 			<version>1.2.58</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 		<!--远程Dubbo的依赖 -->
 		<!--<dependency>-->
 			<!--<groupId>com.flightroutes.common</groupId>-->
