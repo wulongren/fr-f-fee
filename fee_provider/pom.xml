@@ -75,17 +75,17 @@
 		</dependency>
 
 		<!--远程Dubbo的依赖 -->
-		<dependency>
-			<groupId>com.flightroutes.common</groupId>
-			<artifactId>dubbo-soa</artifactId>
-			<version>1.1.1</version>
-            <exclusions>
-                <exclusion>
-					<groupId>com.alibaba</groupId>
-					<artifactId>dubbo</artifactId>
-                </exclusion>
-            </exclusions>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.flightroutes.common</groupId>-->
+<!--			<artifactId>dubbo-soa</artifactId>-->
+<!--			<version>1.1.1</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--					<groupId>com.alibaba</groupId>-->
+<!--					<artifactId>dubbo</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.apache.dubbo</groupId>
