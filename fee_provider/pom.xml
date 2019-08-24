@@ -11,7 +11,7 @@
 	</parent>
 
 	<artifactId>fr-f-fee-provider</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>fr-f-fee-provider</name>
 	<url>http://maven.apache.org</url>
 
@@ -74,11 +74,11 @@
 			<version>1.2.58</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
 
 		<!--远程Dubbo的依赖 -->
 		<!--<dependency>-->
@@ -218,17 +218,17 @@
 	<build>
 		<finalName>fee</finalName>
 		<plugins>
-			<!--<plugin>-->
-				<!--<groupId>org.springframework.boot</groupId>-->
-				<!--<artifactId>spring-boot-maven-plugin</artifactId>-->
-				<!--<executions>-->
-					<!--<execution>-->
-						<!--<goals>-->
-							<!--<goal>repackage</goal>-->
-						<!--</goals>-->
-					<!--</execution>-->
-				<!--</executions>-->
-			<!--</plugin>-->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
