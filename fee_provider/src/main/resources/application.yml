@@ -3,8 +3,8 @@ server:
 spring:
   application:
     name: fee
-  mvc:
-    static-path-pattern: /resources/static/**
+#  mvc:
+#    static-path-pattern: /resources/static/**
 #  thymeleaf:
 #    prefix: classpath:/templates/
 #    suffix:
