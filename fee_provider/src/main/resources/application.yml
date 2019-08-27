@@ -3,10 +3,12 @@ server:
 spring:
   application:
     name: fee
-  mvc:
-    static-path-pattern: /resources/static/**
-#  thymeleaf:
-#    prefix: classpath:/templates/
-#    suffix:
-#    mode: HTML
-#    encoding: UTF-8
+  aop:
+    auto: true
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  session:
+    timeout: 120
