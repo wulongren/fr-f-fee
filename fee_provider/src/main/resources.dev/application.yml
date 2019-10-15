@@ -11,7 +11,7 @@ fr-datasource:
 
 mybatis:
   type-aliases-package: com.flightroutes.flight.fee.bean
-  mapper-locations: classpath:mappers/*.xml
+  mapper-locations: classpath:resources/mybatis/mappers/*.xml
 
 mapper:
   #  mappers:
