@@ -23,14 +23,14 @@ server:
   tomcat:
     uri-encoding: UTF-8
   servlet:
-    context-path: /fee
-  port: 8089
+    context-path: /
+  port: 8590
 
 
 dubbo:
   protocol:
     name: dubbo
-    port: 8444
+    port: 20120
   registry:
     address: 120.79.166.233:2181
     group: fr_f_fee_deva
