@@ -25,6 +25,8 @@ server:
   servlet:
     context-path: /fee
   port: 8089
+  logging:
+    config: src/main/resources/log4j.properties
 
 
 dubbo:
