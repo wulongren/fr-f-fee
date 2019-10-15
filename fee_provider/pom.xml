@@ -32,6 +32,22 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>com.flightroutes.flight.spring.boot</groupId>
+			<artifactId>redis-spring-boot-starter</artifactId>
+			<version>1.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.flightroutes.flight.spring.boot</groupId>
+			<artifactId>filter-spring-boot-starter</artifactId>
+			<version>1.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.flightroutes.flight.spring.boot</groupId>
+			<artifactId>jdbc-spring-boot-starter</artifactId>
+			<version>1.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.dianping.zebra</groupId>
 			<artifactId>zebra-api</artifactId>
 		</dependency>
@@ -153,6 +169,13 @@
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>2.1.0</version>
+		</dependency>
+
+		<!--mapper-->
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper-spring-boot-starter</artifactId>
+			<version>1.2.4</version>
 		</dependency>
 
 		<dependency>

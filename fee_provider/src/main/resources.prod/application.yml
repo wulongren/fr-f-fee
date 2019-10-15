@@ -1,0 +1,48 @@
+spring:
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    locale: zh_CN
+
+fr-datasource:
+  type: com.dianping.zebra.group.jdbc.GroupDataSource
+    zebra:
+      jdbcRef: fr_f_fee_product
+
+mybatis:
+  type-aliases-package: com.flightroutes.flight.fee.bean
+  mapper-locations: classpath:mappers/*.xml
+
+mapper:
+  #  mappers:
+  #    - com.flightroutes.flight.vcc.mapper.TestMapper
+  not-empty: false
+  identity: MYSQL
+
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    context-path: /fee
+  port: 8089
+
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: 20990
+  registry:
+    address: 10.32.156.211:2180,10.32.186.172:2180,10.32.157.201:2180
+    group: fr_f_fee
+    id: fr_f_fee
+    protocol: zookeeper
+  application:
+    name: fr_f_fee
+    owner: chensj
+    organization: frdubbo
+
+
+  fee:
+   group : fr_f_fee
+

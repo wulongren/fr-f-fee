@@ -5,12 +5,16 @@
     	http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://code.alibabatech.com/schema/dubbo
 		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-	
-	<dubbo:provider connections="10"/>
-	
-    <dubbo:application name="${zkServiceAppName}" owner="kylin.tong" organization="FlightRoutes-Flight"/>
 
-    <dubbo:protocol name="dubbo" port="${dubbo.port}" threads="200"/>
+    <dubbo:application name="${dubbo.application.name}" owner="${dubbo.application.owner}" organization="${dubbo.application.organization}" />
+
+    <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}"  group="${dubbo.registry.group}" id="fr_f_vcc"  />
+
+    <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}" threads="100" queues="1000" />
+
+    <dubbo:provider>
+        <dubbo:parameter key="qloglevel" value="${dubboLog.level:9}" />
+    </dubbo:provider>
 
     <import resource="dubbo-expose.xml"/>
 </beans>
