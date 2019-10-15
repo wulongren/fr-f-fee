@@ -22,17 +22,15 @@ mapper:
 server:
   tomcat:
     uri-encoding: UTF-8
-  servlet:
-    context-path: /fee
-  port: 8089
+  port: 8590
 
 
 dubbo:
   protocol:
     name: dubbo
-    port: 20990
+    port: 20120
   registry:
-    address: 10.4.241.3:2181
+    address: 120.79.166.233:2181
     group: fr_f_fee_deva
     id: fr_f_fee_deva
     protocol: zookeeper
