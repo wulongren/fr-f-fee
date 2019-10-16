@@ -22,7 +22,7 @@ mapper:
 server:
   tomcat:
     uri-encoding: UTF-8
-  port: 8590
+  port: 8591
 
 
 dubbo:
