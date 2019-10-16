@@ -28,7 +28,7 @@ server:
 dubbo:
   protocol:
     name: dubbo
-    port: 20120
+    port: 20121
   registry:
     address: 120.79.166.233:2181
     group: fr_f_fee_deva
