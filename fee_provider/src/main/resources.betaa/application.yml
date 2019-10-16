@@ -24,13 +24,13 @@ server:
     uri-encoding: UTF-8
   servlet:
     context-path: /
-  port: 8591
+  port: 8590
 
 
 dubbo:
   protocol:
     name: dubbo
-    port: 20121
+    port: 20120
   registry:
     address: 10.4.241.3:2181
     group: fr_f_fee_betaa

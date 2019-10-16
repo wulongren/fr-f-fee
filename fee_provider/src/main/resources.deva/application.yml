@@ -22,13 +22,13 @@ mapper:
 server:
   tomcat:
     uri-encoding: UTF-8
-  port: 8591
+  port: 8590
 
 
 dubbo:
   protocol:
     name: dubbo
-    port: 20121
+    port: 20120
   registry:
     address: 120.79.166.233:2181
     group: fr_f_fee_deva
