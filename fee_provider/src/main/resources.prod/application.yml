@@ -31,9 +31,9 @@ server:
 dubbo:
   protocol:
     name: dubbo
-    port: 20990
+    port: 8444
   registry:
-    address: 10.32.156.211:2180,10.32.186.172:2180,10.32.157.201:2180
+    address: 10.32.186.172:2180,10.21.148.9:2180,10.4.221.31:2180
     group: fr_f_fee
     id: fr_f_fee
     protocol: zookeeper
@@ -46,7 +46,7 @@ dubbo:
   fee:
    group : fr_f_fee
   privilege:
-    group: fr_f_privilege_devx
+    group: fr_f_privilege
   sso:
-    group: fr_f_sso_devx
+    group: fr_f_sso
 
