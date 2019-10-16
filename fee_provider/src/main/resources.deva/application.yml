@@ -38,8 +38,7 @@ dubbo:
     name: fr_f_fee
     owner: chensj
     organization: frdubbo
-
- fee:
-  group : fr_f_fee_deva
+  fee:
+    group : fr_f_fee_deva
 
 
