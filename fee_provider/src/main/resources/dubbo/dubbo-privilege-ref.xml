@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://code.alibabatech.com/schema/dubbo
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+ 	
+	<dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" group="${dubbo.privilege.group}" id="fr_f_privilege"/>
+
+    <!-- 获取所有的菜单 -->
+     <dubbo:reference
+            id="menusGetService"
+            interface="com.flightroutes.flight.privilege.service.IMenusGetService"
+            version="1.0.0"
+            cluster="failfast"
+            timeout="50000"
+            check="false"
+            registry="fr_f_privilege">
+   </dubbo:reference>
+    
+</beans>
