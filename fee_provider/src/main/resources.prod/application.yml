@@ -12,7 +12,7 @@ fr-datasource:
 
 mybatis:
   type-aliases-package: com.flightroutes.flight.fee.bean
-  mapper-locations: classpath:mappers/*.xml
+  mapper-locations: classpath:mybatis/mappers/*.xml
 
 mapper:
   #  mappers:
@@ -24,8 +24,8 @@ server:
   tomcat:
     uri-encoding: UTF-8
   servlet:
-    context-path: /fee
-  port: 8089
+    context-path: /
+  port: 8080
 
 
 dubbo:
