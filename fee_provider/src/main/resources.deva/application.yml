@@ -43,8 +43,8 @@ dubbo:
   fee:
     group : fr_f_fee_deva
   privilege:
-    group: fr_f_privilege
+    group: fr_f_privilege_deva
   sso:
-    group: fr_f_sso
+    group: fr_f_sso_deva
 
 
