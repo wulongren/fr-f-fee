@@ -17,4 +17,6 @@
     </dubbo:provider>
 
     <import resource="dubbo-expose.xml"/>
+    <import resource="dubbo-privilege-ref.xml"/>
+    <import resource="dubbo-sso-ref.xml"/>
 </beans>
