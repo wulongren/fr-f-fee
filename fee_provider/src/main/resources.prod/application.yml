@@ -7,8 +7,8 @@ spring:
 
 fr-datasource:
   type: com.dianping.zebra.group.jdbc.GroupDataSource
-    zebra:
-      jdbcRef: fr_f_fee_product
+  zebra:
+    jdbcRef: fr_f_fee_product
 
 mybatis:
   type-aliases-package: com.flightroutes.flight.fee.bean
