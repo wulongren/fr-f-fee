@@ -325,6 +325,21 @@
 				</resources>
 			</build>
 		</profile>
+
+		<profile>
+			<id>deva</id>
+
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources.devx</directory>
+					</resource>
+					<resource>
+						<directory>src/main/resources</directory>
+					</resource>
+				</resources>
+			</build>
+		</profile>
 		<profile>
 			<id>betaa</id>
 			<build>
