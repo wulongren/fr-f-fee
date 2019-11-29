@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>开票费配置</title>
+	<link rel="stylesheet" type="text/css" href="./css/page/serviceFeeConfig.css?v=20171017" />
+	<link rel="stylesheet" type="text/css" href="./css/supplier.css">
+	<link rel="stylesheet" type="text/css" href="./css/page.css?v=1.0.229" />
+	<link rel="stylesheet" type="text/css" href="./css/commonStyle-1.0.1.css?v=1.0.1" />
+	<script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="./js/PageBuilder/pageBuilder.js"></script>
+	<script type="text/javascript" src="./js/jsUtils-1.0.1.js"></script>
+	<script type="text/javascript" src="./js/dot.js" ></script>
+	<script type="text/javascript" src="./js/capacity-1.0.4.js?v=1.0.0"></script>
+
+</head>
+<body>
+
+	<div class="title">FR24标准开票费配置</div>
+
+	<div class="container">
+		<table class="tableResult fr-service-fee">
+			<thead>
+				<tr class="table-hover form-horizontal">
+					<td class="info" style="display: none;">id</td>
+					<td class="info">币种</td>
+					<td class="info">开票费</td>
+					<td class="info">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="title">采购商开票费配置</div>
+
+	<div class="searchForm">
+		<span>采购商</span>
+		<input id="searchCode" type="text" class="form-control fromEle">
+		<button type="button" id="searchBtn" class="btn">查询</button>
+		<button type="button" onclick="serviceFeeAddShow()" class="btn">添加</button>
+	</div>
+
+	<div class="container">
+		<table class="tableResult service-fee">
+			<thead>
+				<tr class="table-hover form-horizontal">
+					<td class="info" style="display: none;">id</td>
+					<td class="info">采购商</td>
+					<td class="info">币种</td>
+					<td class="info">开票费</td>
+					<td class="info">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<div id="page_bar"></div>
+	</div>
+
+	<div id="showModal"></div>
+	<script id="fr-service-fee-update-tpl" type="text/html">
+
+       <div class="modal_yy"></div>
+		<div class="modal_content">
+		<div class="modal_head">
+			<p>修改标准开票费</p>
+			<span class="modal_cancel" onclick="hideModal()">X</span>
+			<div class="clear"></div>
+		</div>
+		<form>
+			<ul class="modal_ul">
+					<input class="formEle" type="hidden" id="id" value="{{= it.id}}"/>
+				<li>
+					<label>币种: </label>
+					<input class="formEle" type="text" disabled value="{{= it.currency}}"/>
+                </li>
+				<li>
+					<label>开票费: </label>
+					<input class="form-control" type="text" id="fee" onblur="verifyFee()" value="{{= it.fee}}"/>
+				</li>
+			</ul>
+		</form>
+		<div class="modal_foot">
+			<span  class="save" onclick="frServiceFeeUpdate()">保存</span>
+			<span class="modal_cancel" onclick="hideModal()">取消</span>
+		</div>
+	</div>
+
+	</script>
+	
+	
+	<script id="fr-service-fee-tpl" type="text/x-dot-template">
+
+        {{~ it : order : index}}
+			<tr>
+				<td class="info" id="frId" style="display: none;">{{= order.id}}</td>
+				<td class="info" id="frCurrency">{{= order.currency}}</td>
+				<td class="info" id="frfee">{{= order.fee}}</td>
+				<td class="info" ><a onclick="frServiceFeeUpdateShow(this)">修改</a></td>
+			</tr>
+        {{~}}
+
+	</script>
+	
+	<script id="service-fee-tpl" type="text/html">
+
+        {{~ it.data : order : index}}
+			<tr>
+				<td class="info" style="display: none;">{{= order.id}}</td>
+				<td class="info">{{= order.purchaser}}</td>
+				<td class="info">{{= order.currency}}</td>
+				<td class="info">{{= order.fee}}</td>
+				<td class="info"><a onclick="serviceFeeUpdateShow(this)">修改</a>&nbsp;<a onclick="serviceFeeRemove({{= order.id}})">删除<a/></td></td>
+			</tr>
+        {{~}}
+
+	</script>
+	
+	<!--添加采购商开票费配置模板-->
+	<script id="service-fee-add-tpl" type="text/html">
+
+        <div class="modal_yy"></div>
+		<div class="modal_content">
+			<div class="modal_head">
+				<p>添加采购商开票费</p>
+				<span class="modal_cancel" onclick="hideModal()">X</span>
+				<div class="clear"></div>
+			</div>
+			<form>
+				<ul class="modal_ul">
+					<li>
+						<label>采购商: </label>
+						<input class="formEle" type="text" id="purchaser" onblur="verifyPurchaser()"/>
+	                </li>
+					<li>
+						<label>币种: </label>
+						<input class="formEle" type="text" id="currency" onblur="verifyCurrency()"/>
+	                </li>
+					<li>
+						<label>开票费: </label>
+						<input class="form-control" type="text" id="fee" onblur="verifyFee()"/>
+					</li>
+				</ul>
+			</form>
+			<div class="modal_foot">
+				<span  class="save" onclick="serviceFeeAddSave()">保存</span>
+				<span class="modal_cancel" onclick="hideModal()">取消</span>
+			</div>
+		</div>
+
+	</script>
+	
+	<!--修改采购商开票费配置模板-->
+	<script id="service-fee-update-tpl" type="text/html">
+        <div class="modal_yy"></div>
+		<div class="modal_content">
+			<div class="modal_head">
+				<p>修改采购商开票费</p>
+				<span class="modal_cancel" onclick="hideModal()">X</span>
+				<div class="clear"></div>
+			</div>
+			<form>
+				<ul class="modal_ul">
+					<input type="hidden" id="id" value="{{= it.id}}">
+					<li>
+						<label>采购商: </label>
+						<input class="formEle" type="text" id="purchaser" value="{{= it.purchaser}}" disabled/>
+	                </li>
+					<li>
+						<label>币种: </label>
+						<input class="formEle" type="text" id="currency" value="{{= it.currency}}" onblur="verifyCurrency()"/>
+	                </li>
+					<li>
+						<label>开票费: </label>
+						<input class="form-control" type="text" id="fee" value="{{= it.fee}}" onblur="verifyFee()"/>
+					</li>
+				</ul>
+			</form>
+			<div class="modal_foot">
+				<span  class="save" onclick="serviceFeeUpdateSave()">保存</span>
+				<span class="modal_cancel" onclick="hideModal()">取消</span>
+			</div>
+		</div>
+
+	</script>
+	
+	<script type="text/javascript" src="js/pages/serviceFeeConfig.js?v=20171019"></script>
+</body>
+</html>
