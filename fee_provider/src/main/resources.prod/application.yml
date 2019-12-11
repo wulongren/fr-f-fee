@@ -33,7 +33,7 @@ dubbo:
     name: dubbo
     port: 8444
   registry:
-    address: 10.32.186.172:2180,10.21.148.9:2180,10.4.221.31:2180
+    address: 10.32.186.172:2180,10.21.214.89:2180,10.4.168.52:2180
     group: fr_f_fee
     id: fr_f_fee
     protocol: zookeeper
