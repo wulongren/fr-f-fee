@@ -33,6 +33,7 @@ public class ServiceFeeApiSerivceImpl implements ServiceFeeApiService{
 	@Override
 	public RetData<ServiceFeeRs> getServiceFee(String purchaserCode) {
 		long start = System.currentTimeMillis();
+		System.out.println(start);
 		try {
 			if(StringUtils.isEmpty(purchaserCode)){
 				FalconMonitor.recordOne(MonitorConsts.SERVICE_FEE_CALL_FAIL);
