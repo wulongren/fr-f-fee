@@ -7,11 +7,11 @@
 	<parent>
 		<groupId>com.flightroutes.flight.fee</groupId>
 		<artifactId>fr-f-fee</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 	</parent>
 
 	<artifactId>fr-f-fee-provider</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>fr-f-fee-provider</name>
 	<url>http://maven.apache.org</url>
 
@@ -30,6 +30,22 @@
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
+
+		<dependency>
+			<groupId>com.flightroutes.flight.spring.boot</groupId>
+			<artifactId>redis-spring-boot-starter</artifactId>
+			<version>1.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.flightroutes.flight.spring.boot</groupId>
+			<artifactId>filter-spring-boot-starter</artifactId>
+			<version>1.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.flightroutes.flight.spring.boot</groupId>
+			<artifactId>jdbc-spring-boot-starter</artifactId>
+			<version>1.1-SNAPSHOT</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.dianping.zebra</groupId>
@@ -62,17 +78,11 @@
 			<artifactId>mns-invoker</artifactId>
 		</dependency>
 
-
-
 		<dependency>
 			<groupId>com.flightroutes.flight.fee</groupId>
 			<artifactId>fr-f-fee-api</artifactId>
 			<version>1.0.0</version>
 		</dependency>
-
-
-
-
 
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -80,42 +90,61 @@
 			<version>1.2.58</version>
 		</dependency>
 
-		<!--远程Dubbo的依赖 -->
-		<dependency>
-			<groupId>com.flightroutes.common</groupId>
-			<artifactId>dubbo-soa</artifactId>
-			<version>1.1.1</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
 
+		<!--远程Dubbo的依赖 -->
+		<!--<dependency>-->
+			<!--<groupId>com.flightroutes.common</groupId>-->
+			<!--<artifactId>dubbo-soa</artifactId>-->
+			<!--<version>1.1.1</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+					<!--<groupId>com.alibaba</groupId>-->
+					<!--<artifactId>dubbo</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+		<!--</dependency>-->
+
+		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>2.7.3</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<!--系统项目间依赖,结束 -->
 
 		<!--Spring的依赖 -->
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!--spring-jdbc的依赖 -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
@@ -127,13 +156,26 @@
 
 
 		<!-- Mybatis的依赖 -->
+		<!--<dependency>-->
+			<!--<groupId>org.mybatis</groupId>-->
+			<!--<artifactId>mybatis</artifactId>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.mybatis</groupId>-->
+			<!--<artifactId>mybatis-spring</artifactId>-->
+		<!--</dependency>-->
+
 		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.1.0</version>
 		</dependency>
+
+		<!--mapper-->
 		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-spring</artifactId>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper-spring-boot-starter</artifactId>
+			<version>1.2.4</version>
 		</dependency>
 
 		<dependency>
@@ -153,7 +195,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		
+
 		<!-- servlet api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -199,11 +241,28 @@
 			<version>2.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.flightroutes.flight.spring.boot</groupId>
+			<artifactId>filter-spring-boot-autoconfigure</artifactId>
+			<version>1.1-SNAPSHOT</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
 		<finalName>fee</finalName>
 		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
@@ -266,6 +325,21 @@
 				</resources>
 			</build>
 		</profile>
+
+		<profile>
+			<id>devx</id>
+
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources.devx</directory>
+					</resource>
+					<resource>
+						<directory>src/main/resources</directory>
+					</resource>
+				</resources>
+			</build>
+		</profile>
 		<profile>
 			<id>betaa</id>
 			<build>
@@ -292,6 +366,6 @@
 				</resources>
 			</build>
 		</profile>
-		
+
 	</profiles>
 </project>

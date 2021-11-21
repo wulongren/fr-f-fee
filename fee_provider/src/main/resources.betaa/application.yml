@@ -1,0 +1,50 @@
+spring:
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    locale: zh_CN
+
+fr-datasource:
+  druid:
+    url: jdbc:mysql://120.79.166.233:3306/fr_f_fee?useUnicode=true&characterEncoding=UTF-8
+
+mybatis:
+  type-aliases-package: com.flightroutes.flight.fee.bean
+  mapper-locations: classpath:mybatis/mappers/*.xml
+
+mapper:
+  #  mappers:
+  #    - com.flightroutes.flight.vcc.mapper.TestMapper
+  not-empty: false
+  identity: MYSQL
+
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8080
+
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: 8447
+  registry:
+    address: 10.4.241.3:2181
+    group: fr_f_fee_betaa
+    id: fr_f_fee_betaa
+    protocol: zookeeper
+  application:
+    name: fr_f_fee
+    owner: chensj
+    organization: frdubbo
+
+
+  fee:
+    group : fr_f_fee_betaa
+  privilege:
+    group: fr_f_privilege_betaa
+  sso:
+    group: fr_f_sso_betaa
+
+
